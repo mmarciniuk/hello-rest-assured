@@ -2,12 +2,13 @@ package pl.mm.helloRestAssured;
 
 import com.jayway.restassured.RestAssured;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.BeforeSuite;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class PetStoreBaseTest {
+public abstract class PetStoreBaseTest extends AbstractTestNGSpringContextTests {
 
     @Value("{restassured.baseHost:http://petstore.swagger.io}")
     protected String host = "http://petstore.swagger.io";
