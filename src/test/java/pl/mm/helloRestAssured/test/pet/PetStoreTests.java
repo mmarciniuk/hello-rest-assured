@@ -11,10 +11,11 @@ import static com.jayway.restassured.RestAssured.given;
 public class PetStoreTests extends PetStoreBaseTest {
 
     private static final String SESSION_ID = UUID.randomUUID().toString();
+    private static long createdPetId;
 
     @Test
     public void testAddPet() {
-        given().sessionId(SESSION_ID)
+        createdPetId = given().sessionId(SESSION_ID)
                 .headers(defaultHeaders)
                 .header("Content-Type", "application/json")
                 .cookies(cookies)
@@ -39,7 +40,8 @@ public class PetStoreTests extends PetStoreBaseTest {
                 .when()
                 .post("/pet")
                 .then()
-                .statusCode(HttpStatus.SC_OK);
+                .statusCode(HttpStatus.SC_OK)
+                .extract().path("id");
     }
 
     @Test(dependsOnMethods = {"testAddPet"})
@@ -49,7 +51,7 @@ public class PetStoreTests extends PetStoreBaseTest {
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .cookies(cookies)
                 .body("name=newName&status=available")
-                .post("/pet/0")
+                .post("/pet/" + createdPetId)
                 .then()
                 .statusCode(HttpStatus.SC_OK);
     }
@@ -58,7 +60,7 @@ public class PetStoreTests extends PetStoreBaseTest {
     public void testGetPetById() {
         given().sessionId(SESSION_ID)
                 .headers(defaultHeaders)
-                .when().get("/pet/0")
+                .when().get("/pet/" + createdPetId)
                 .then().statusCode(HttpStatus.SC_OK);
     }
 
