@@ -73,3 +73,5 @@ These [properties](https://mkyong.com/maven/how-to-tell-maven-to-use-java-8/) wi
    2. testUpdatePet
    3. testGetPetById
    4. findByStatus
+
+As we can notice tests created in REST Assured are very self self-descriptive.
