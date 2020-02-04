@@ -10,7 +10,7 @@ Example:
 given().headers(defaultHeaders).when().get("/pet/0").then().statusCode(HttpStatus.SC_OK);
 ```
 ## Requirements
-To use REST Assured following prerequisites need to be meet:
+To use REST Assured following prerequisites need to be met:
 * knowledge of _Java_
 * knowledge of _Maven_
 * knowledge of _TestNG_ (or _JUnit_)
