@@ -20,10 +20,6 @@ To use REST Assured following prerequisites need to be meet:
 ## Step by step
 This example use API Petstore https://petstore.swagger.io/
 
-
-## Useful links
-* https://javastart.pl/baza-wiedzy/testy-automatyczne-rest-assured/zanim-zaczniesz-automatyzowac
-
 1. Create maven project
 2. Add properties to maven:
 ```xml
@@ -75,3 +71,6 @@ These [properties](https://mkyong.com/maven/how-to-tell-maven-to-use-java-8/) wi
    4. findByStatus
 
 As we can notice tests created in REST Assured are very self self-descriptive.
+
+## Useful links
+* https://javastart.pl/baza-wiedzy/testy-automatyczne-rest-assured/zanim-zaczniesz-automatyzowac
